@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  database:
+    image: oscarfonts/h2
+    ports:
+      - '1521:1521'
+      - '8081:81'
+      - '8082:8082'
+    volumes:
+      - './data/h2:/opt/h2-data'
+    environment:
+      - H2_OPTIONS=-ifNotExists -tcp -tcpAllowOthers -tcpPort 8082
