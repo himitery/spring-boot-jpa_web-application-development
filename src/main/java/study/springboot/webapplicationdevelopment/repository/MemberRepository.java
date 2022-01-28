@@ -2,15 +2,15 @@ package study.springboot.webapplicationdevelopment.repository;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import study.springboot.webapplicationdevelopment.domain.Member;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
 
-	@PersistenceContext
-	private EntityManager em;
+	private final EntityManager em;
 
 	public void save(Member member) {
 		em.persist(member);
