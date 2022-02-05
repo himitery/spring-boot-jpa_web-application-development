@@ -1,5 +1,6 @@
 package study.springboot.webapplicationdevelopment.service;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +12,7 @@ import study.springboot.webapplicationdevelopment.domain.item.Item;
 import study.springboot.webapplicationdevelopment.repository.ItemRepository;
 import study.springboot.webapplicationdevelopment.repository.MemberRepository;
 import study.springboot.webapplicationdevelopment.repository.OrderRepository;
+import study.springboot.webapplicationdevelopment.repository.OrderSearch;
 
 @Service
 @Transactional(readOnly = true)
@@ -63,8 +65,8 @@ public class OrderService {
 	/*
 	 * 검색
 	 * */
-//	public List<Order> findOrders(OrderSearch orderSearch) {
-//		return orderRepository.findAll(orderSearch);
-//	}
+	public List<Order> findOrders(OrderSearch orderSearch) {
+		return orderRepository.findAllByCriteria(orderSearch);
+	}
 
 }
